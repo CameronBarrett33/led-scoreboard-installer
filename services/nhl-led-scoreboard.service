@@ -5,8 +5,8 @@ After=network.target network-online.target
 
 [Service]
 Environment="SCOREBOARD_ARGS=--led-gpio-mapping=adafruit-hat-pwm --led-brightness=60 --led-slowdown-gpio=4 --led-no-hardware-pulse=true --led-rows=32 --led-cols=64"
-WorkingDirectory=/home/pi/nhl-led-scoreboard/src
-ExecStart=/usr/bin/python3 main.py $SCOREBOARD_ARGS
+WorkingDirectory=/home/pi/nhl-led-scoreboard
+ExecStart=/usr/bin/python3 src/main.py $SCOREBOARD_ARGS
 Restart=always
 RestartSec=2
 
