@@ -1,0 +1,14 @@
+[Unit]
+Description=MLB LED Scoreboard
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+Environment="SCOREBOARD_ARGS=--led-gpio-mapping=adafruit-hat-pwm --led-brightness=60 --led-slowdown-gpio=4 --led-no-hardware-pulse=true"
+WorkingDirectory=/home/pi/nfl-led-scoreboard
+ExecStart=/usr/bin/python main.py $SCOREBOARD_ARGS
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
