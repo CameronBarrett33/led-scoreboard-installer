@@ -1,0 +1,13 @@
+[Unit]
+Description=Cycle Boards
+Wants=network-online.target
+After=network.target network-online.target
+
+[Service]
+WorkingDirectory=/home/pi/led-scoreboard-installer/cycle-boards
+ExecStart=/usr/bin/python cycle-boards.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
